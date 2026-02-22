@@ -1,4 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  document.documentElement.dataset.theme = 'green';
+})
+</script>
 
 <template>
   <h1>You did it!</h1>

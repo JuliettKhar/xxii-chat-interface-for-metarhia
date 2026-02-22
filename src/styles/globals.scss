@@ -1,0 +1,15 @@
+@use "./tokens/index" as *;
+
+html {
+  /* тема по умолчанию */
+  &[data-theme="green"] { }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  line-height: var(--lh-normal);
+}

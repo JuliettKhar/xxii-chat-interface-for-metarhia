@@ -1,0 +1,39 @@
+@use "../semantic" as s;
+@use "../typography" as t;
+
+:root[data-theme="green"] {
+  /* Colors (semantic) */
+  --bg: #{s.$bg};
+  --bg-secondary: #{s.$bg-secondary};
+  --surface: #{s.$surface};
+
+  --text-primary: #{s.$text-primary};
+  --text-secondary: #{s.$text-secondary};
+  --text-accent: #{s.$text-accent};
+
+  --border-strong: #{s.$border-strong};
+
+  --accent: #{s.$accent};
+  --accent-2: #{s.$accent-2};
+  --accent-bg: #{s.$accent-bg};
+
+  --warning: #{s.$warning};
+  --critical: #{s.$critical};
+  --info: #{s.$info};
+
+  /* Typography */
+  --font-family-mono: #{t.$font-family-mono};
+  --font-weight-regular: #{t.$font-weight-regular};
+  --font-weight-medium: #{t.$font-weight-medium};
+  --font-weight-semibold: #{t.$font-weight-semibold};
+  --font-weight-bold: #{t.$font-weight-bold};
+
+  --font-size-sm: #{t.$font-size-sm};
+  --font-size-md: #{t.$font-size-md};
+  --font-size-xl: #{t.$font-size-xl};
+  --font-size-3xl: #{t.$font-size-3xl};
+
+  --lh-tight: #{t.$lh-tight};
+  --lh-normal: #{t.$lh-normal};
+  --ls-wide: #{t.$ls-wide};
+}

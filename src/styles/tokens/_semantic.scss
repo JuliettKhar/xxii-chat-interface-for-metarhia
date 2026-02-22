@@ -1,0 +1,24 @@
+@use "./primitives" as p;
+
+/* Backgrounds */
+$bg: p.$black-900;
+$bg-secondary: p.$black-850;
+$surface: p.$black-800;
+
+/* Text */
+$text-primary: p.$green-450;
+$text-secondary: p.$sage-500;
+$text-accent: p.$green-500;
+
+/* Borders */
+$border-strong: p.$green-300;
+
+/* Accent */
+$accent: p.$green-500;
+$accent-2: p.$green-400;
+$accent-bg: p.$green-200;
+
+/* Alerts */
+$warning: p.$orange-500;
+$critical: p.$yellow-500;
+$info: p.$blue-500;

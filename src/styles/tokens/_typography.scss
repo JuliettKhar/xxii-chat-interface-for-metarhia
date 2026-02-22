@@ -1,0 +1,53 @@
+/* Font families */
+$font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace;
+
+$font-family-ui: Inter, system-ui, -apple-system, sans-serif;
+
+/* Font weights */
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+/* Font sizes */
+$font-size-xs: 0.75rem;  // 12px
+$font-size-sm: 0.875rem; // 14px
+$font-size-md: 1rem;     // 16px
+$font-size-lg: 1.125rem; // 18px
+$font-size-xl: 1.25rem;  // 20px
+$font-size-2xl: 1.5rem;  // 24px
+$font-size-3xl: 2rem;    // 32px
+$font-size-4xl: 2.5rem;  // 40px
+
+/* Line heights */
+$lh-tight: 1.2;
+$lh-normal: 1.5;
+$lh-relaxed: 1.7;
+
+/* Letter spacing */
+$ls-tight: -0.02em;
+$ls-normal: 0;
+$ls-wide: 0.08em;
+
+/* Semantic roles (SCSS-level) */
+$text-caption-size: $font-size-xs;
+$text-caption-weight: $font-weight-medium;
+
+$text-body-size: $font-size-sm;
+$text-body-weight: $font-weight-regular;
+
+$text-ui-size: $font-size-md;
+$text-ui-weight: $font-weight-medium;
+
+$text-heading-sm-size: $font-size-lg;
+$text-heading-sm-weight: $font-weight-semibold;
+
+$text-heading-md-size: $font-size-xl;
+$text-heading-md-weight: $font-weight-bold;
+
+$text-heading-lg-size: $font-size-3xl;
+$text-heading-lg-weight: $font-weight-bold;
+
+$text-display-size: $font-size-4xl;
+$text-display-weight: $font-weight-bold;
