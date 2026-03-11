@@ -18,7 +18,7 @@ export default defineConfig({
   css: {
   preprocessorOptions: {
     scss: {
-      additionalData: `@use "@/styles/tokens/index.scss" as *;`
+      additionalData: `@use "@/shared/styles/tokens/index.scss" as *;`
     }
   }
 }

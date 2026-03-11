@@ -1,5 +1,5 @@
-@use "../semantic" as s;
-@use "../typography" as t;
+@use "../tokens/semantic" as s;
+@use "../tokens/typography" as t;
 
 :root[data-theme="green"] {
   /* Colors (semantic) */

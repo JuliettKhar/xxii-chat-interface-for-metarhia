@@ -1,4 +1,4 @@
-@use "./primitives" as p;
+@use "primitives" as p;
 
 /* Backgrounds */
 $bg: p.$black-900;
@@ -25,4 +25,3 @@ $accent-bg: p.$green-200;
 $warning: p.$orange-500;
 $critical: p.$yellow-500;
 $info: p.$blue-500;
-
