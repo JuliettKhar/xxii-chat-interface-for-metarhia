@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { CHATS, CONTACTS, FEEDS, FOLDERS } from '@/features/navigation_sidebar/utils/mock-data.ts';
+import { CHATS, CONTACTS, FEEDS, FOLDERS } from '@/shared/utils/mock-data.ts';
 import Icon from '@/shared/ui/Icon.vue';
 
 const contacts = ref([...CONTACTS]);
@@ -87,6 +87,10 @@ const folders = ref([...FOLDERS]);
 
   &__block {
     padding: 0 14px;
+
+    h3 {
+      color: var(--text-white);
+    }
     ul {
       list-style-type: none;
       padding: 0;
@@ -106,13 +110,7 @@ const folders = ref([...FOLDERS]);
 
   &__block--list {
     & > li {
-      cursor: pointer;
-      padding: 6px;
-
-      &:hover {
-        background-color: var(--critical);
-        color: var(--text-white);
-      }
+      @include mixins.sidebar-list-hover;
     }
   }
 

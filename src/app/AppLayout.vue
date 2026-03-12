@@ -1,10 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import NavigationSidebar from '@/features/navigation_sidebar/index.vue';
+import AppChat from '@/features/app_chat/index.vue';
+</script>
 
 <template>
   <div class="layout-wrapper">
-    <section class="layout-wrapper__right-sidebar">side1</section>
-    <section class="layout-wrapper__chat">chat</section>
-    <section class="layout-wrapper__left-sidebar">side2</section>
+    <section class="layout-wrapper__left-sidebar"><NavigationSidebar /></section>
+    <section class="layout-wrapper__chat"><AppChat /></section>
+    <section class="layout-wrapper__right-sidebar">side2</section>
   </div>
 </template>
 
@@ -19,12 +22,12 @@
     border: .5px none;
   }
 
-  &__right-sidebar {
+  &__left-sidebar {
     background: var(--aside-bg);
     border-right: .5px solid var(--accent-bg);
   }
 
-  &__left-sidebar {
+  &__right-sidebar {
      border-left: .5px solid var(--accent-bg);
   }
 }

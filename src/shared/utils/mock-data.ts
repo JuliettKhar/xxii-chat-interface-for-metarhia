@@ -69,3 +69,34 @@ export const FOLDERS = [
     files: ['old-chats'],
   },
 ];
+
+export const chatNav = [
+  'Search', 'Pin list', 'Members', 'Files'
+]
+
+export const CHAT_MESSAGES = [
+  {
+    title: 'Terminal UI Design System Release',
+    author: 'sara',
+    time: '2025-12-15 13:05',
+    body:
+      'We are excited to announce the release of our new terminal-inspired design system. This includes monospace typography, tight spacing, and keyboard-first navigation patterns.',
+    replies: 3,
+  },
+  {
+    title: 'Q4 Development Roadmap',
+    author: 'sara',
+    time: '2025-12-15 13:58',
+    body:
+      'Here is our planned roadmap for the next quarter: key focus performance improvements, new collaboration features, and enhanced search capabilities.',
+    replies: 15,
+  },
+  {
+    title: 'Weekly Sync Notes',
+    author: 'sara',
+    time: '2025-12-13 10:12',
+    body:
+      'Summary of this week\'s meeting: Completed authentication flow, started work on real-time features, and discussed design patterns for the new system.',
+    replies: 5,
+  },
+];
