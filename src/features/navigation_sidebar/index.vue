@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import { CHATS, CONTACTS, FEEDS, FOLDERS } from '@/shared/utils/mock-data.ts';
-import Icon from '@/shared/ui/Icon.vue';
+import NavSidebarBlock from '@/features/navigation_sidebar/components/NavSidebarBlock.vue';
 
-const contacts = ref([...CONTACTS]);
-const feeds = [...FEEDS];
-const chats = ref([...CHATS]);
-const folders = ref([...FOLDERS]);
+const sidebarNav = [
+  { name: 'contacts', items: [...CONTACTS] },
+  { name: 'feeds', items: [...FEEDS] },
+  { name: 'chats', items: [...CHATS] },
+  { name: 'folders', items: [...FOLDERS], isFolder: true },
+];
 </script>
 
 <template>
@@ -15,72 +16,7 @@ const folders = ref([...FOLDERS]);
       <h2>$ Chat title</h2>
       <span class="navigation-sidebar__menu-header--peers"><span>peers:</span> 4</span>
     </div>
-    <div>
-      <div class="navigation-sidebar__block border-bottom-black">
-        <h3 class="navigation-sidebar__block--contacts">CONTACTS</h3>
-        <ul class="navigation-sidebar__block--list">
-          <li v-for="(item, i) in contacts" :key="i">
-            <router-link to="" class="navigation-sidebar__block-link">
-              <span class="block-link__side-wrapper">
-                <Icon :name="item.icon" variant="outlined" />
-                <span>{{ item.name }}</span>
-              </span>
-              <span class="block-link__side-wrapper">
-                <span>[2]</span>
-                <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
-              </span>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-      <div class="navigation-sidebar__block border-bottom-black">
-        <h3>FEEDS</h3>
-        <ul class="navigation-sidebar__block--list">
-          <li v-for="(item, i) in feeds" :key="i">
-            <router-link to="" class="navigation-sidebar__block-link">
-              <span class="block-link__side-wrapper">
-                <Icon :name="item.icon" variant="outlined" />
-                <span>{{ item.name }}</span>
-              </span>
-              <span class="block-link__side-wrapper">
-                <span>[2]</span>
-                <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
-              </span>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-      <div class="navigation-sidebar__block border-bottom-black">
-        <h3>CHATS</h3>
-        <ul class="navigation-sidebar__block--list">
-          <li v-for="(item, i) in chats" :key="i">
-            <router-link to="" class="navigation-sidebar__block-link">
-              <span class="block-link__side-wrapper">
-                <Icon :name="item.icon" variant="outlined" />
-                <span>{{ item.name }}</span>
-              </span>
-              <span class="block-link__side-wrapper">
-                <span>[2]</span>
-                <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
-              </span>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-      <div class="navigation-sidebar__block border-bottom-black">
-        <h3>FOLDERS</h3>
-        <ul class="navigation-sidebar__block--list">
-          <li v-for="(item, i) in folders" :key="i">
-            <router-link to="" class="navigation-sidebar__block-link">
-              <span class="block-link__side-wrapper">
-                <Icon :name="item.icon" variant="outlined" />
-                <span>{{ item.name }}</span>
-              </span>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <NavSidebarBlock :sidebarItem="sidebarNav" />
   </nav>
 </template>
 
@@ -104,56 +40,6 @@ const folders = ref([...FOLDERS]);
         color: var(--text-white);
       }
     }
-  }
-
-  &__block {
-    padding: 0 14px;
-
-    h3 {
-      color: var(--text-white);
-      opacity: 0.7;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-
-      li {
-        margin: 0;
-      }
-    }
-  }
-
-  &__block-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  &__block--list {
-    & > li  {
-      @include mixins.sidebar-list-hover;
-    }
-
-    & > li > a {
-      opacity: 0.7;
-    }
-  }
-
-  &__block-time {
-    margin-left: auto;
-    font-size: 11px;
-    opacity: 0.7;
-    color: var(--text-white);
-  }
-}
-
-.block-link {
-  &__side-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 6px;
   }
 }
 </style>

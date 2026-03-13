@@ -1,0 +1,155 @@
+<script setup lang="ts">
+import Icon from '@/shared/ui/Icon.vue';
+import type { INavSidebar } from '@/widgets/rigth_sidebar/types';
+
+const props = withDefaults(
+  defineProps<{
+    sidebarItem: INavSidebar[];
+  }>(),
+  {
+    sidebarItem: () => [
+      {
+        name: '',
+        items: [],
+      },
+    ],
+  },
+);
+</script>
+
+<template>
+  <div
+    v-for="(sidebarItem, i) in props.sidebarItem"
+    :key="i"
+    class="navigation-sidebar__block border-bottom-black"
+  >
+    <h3 class="navigation-sidebar__block--contacts">{{ sidebarItem.name?.toUpperCase() }}</h3>
+    <ul class="navigation-sidebar__block--list">
+      <template v-if="!sidebarItem.isFolder">
+        <li v-for="(item, i) in sidebarItem.items" :key="i" class="list-hover">
+          <router-link to="" class="navigation-sidebar__block-link">
+            <span class="block-link__side-wrapper">
+              <Icon :name="item.icon" variant="outlined" />
+              <span>{{ item.name }}</span>
+            </span>
+            <span class="block-link__side-wrapper">
+              <span v-if="item.messagesCount">[{{ item.messagesCount }}]</span>
+              <span v-else></span>
+              <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
+            </span>
+          </router-link>
+        </li>
+      </template>
+      <template v-else>
+        <li v-for="(item, i) in sidebarItem.items" :key="i">
+          <button class="block-tree__side-wrapper">
+            <a href="">[-]</a>
+            <span class="block-link__folder-name">{{ item.name }}</span>
+          </button>
+          <ul class="navigation-sidebar__block-tree">
+            <li v-for="(file, i) in item.files" :key="i">
+              <button class="block-tree__side-wrapper">
+                <Icon :size="12" name="draft" variant="outlined" />
+                <span class="block-tree__file-name">{{ file }}</span>
+              </button>
+            </li>
+          </ul>
+        </li>
+      </template>
+    </ul>
+  </div>
+</template>
+
+<style scoped lang="scss">
+.navigation-sidebar {
+  &__block {
+    padding: 0 14px;
+
+    h3 {
+      color: var(--text-white);
+      opacity: 0.7;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        margin: 0;
+      }
+    }
+  }
+
+  &__block-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &__block-tree {
+    padding-left: 20px !important;
+  }
+
+  &__block--list {
+    & > li.list-hover {
+      @include mixins.sidebar-list-hover;
+    }
+
+    & > li > a {
+      opacity: 0.7;
+    }
+  }
+
+  &__block-time {
+    margin-left: auto;
+    font-size: 11px;
+    opacity: 0.7;
+    color: var(--text-white);
+  }
+}
+
+.block-link {
+  &__side-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  &__file-name {
+    color: var(--text-primary);
+    opacity: 0.7;
+
+    &:hover {
+      color: var(--text-white);
+    }
+  }
+
+  &__folder-name {
+    opacity: 0.7;
+  }
+}
+
+.block-tree {
+  &__side-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px;
+
+    &:hover {
+      color: var(--critical);
+    }
+  }
+
+  &__file-name {
+    color: var(--text-primary);
+    opacity: 0.7;
+
+    &:hover {
+      color: var(--critical);
+    }
+  }
+}
+</style>

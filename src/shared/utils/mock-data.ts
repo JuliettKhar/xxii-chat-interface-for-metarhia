@@ -3,11 +3,13 @@ export const CONTACTS = [
     name: 'name 1',
     icon: 'person',
     lastActivity: '12:41',
+    messagesCount: 12,
   },
   {
     name: 'name 2',
     icon: 'person',
     lastActivity: '11:23',
+    messagesCount: 24,
   },
   {
     name: 'name 3',
@@ -44,28 +46,31 @@ export const CHATS = [
     name: '!engineering',
     icon: 'folder_code',
     lastActivity: '12:01',
+    messagesCount: 2,
   },
   {
     name: '!product',
     icon: 'contacts_product',
     lastActivity: '11:04',
+    messagesCount: 29,
   },
   {
     name: '!general',
     icon: 'settings_heart',
     lastActivity: 'yesterday',
+    messagesCount: 26,
   },
 ];
 
 export const FOLDERS = [
   {
     name: 'Projects',
-    icon: 'add_comment',
+    icon: 'folder',
     files: ['project-alpha', 'project-beta'],
   },
   {
     name: 'Archive',
-    icon: 'add_comment',
+    icon: 'folder',
     files: ['old-chats'],
   },
 ];

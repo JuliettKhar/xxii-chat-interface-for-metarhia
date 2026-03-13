@@ -1,9 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Icon from '@/shared/ui/Icon.vue';
+</script>
 
 <template>
   <div class="right-sidebar">
     <div class="right-sidebar__header border-bottom-black">
       <h2>post details</h2>
+      <button>
+        <Icon name="close"></Icon>
+      </button>
     </div>
     <div>
       <div class="right-sidebar__block border-bottom-black"></div>
@@ -31,6 +36,9 @@
 <style scoped lang="scss">
 .right-sidebar {
   &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 8px 14px;
 
     h2 {
