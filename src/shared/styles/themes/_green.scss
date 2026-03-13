@@ -6,12 +6,14 @@
   --bg: #{s.$bg};
   --bg-secondary: #{s.$bg-secondary};
   --surface: #{s.$surface};
-   --aside-bg: #{s.$aside-bg};
+  --aside-bg: #{s.$aside-bg};
 
   --text-primary: #{s.$text-primary};
   --text-secondary: #{s.$text-secondary};
   --text-accent: #{s.$text-accent};
   --text-white: #{s.$text-white};
+  --text-black: #{s.$text-black};
+  --text-blue: #{s.$text-blue};
 
   --border-strong: #{s.$border-strong};
   --border-thin-black: #{s.$border-thin-black};
@@ -19,6 +21,7 @@
   --accent: #{s.$accent};
   --accent-2: #{s.$accent-2};
   --accent-bg: #{s.$accent-bg};
+  --accent-blue: #{s.$accent-blue};
 
   --warning: #{s.$warning};
   --critical: #{s.$critical};
