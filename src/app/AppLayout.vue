@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import NavigationSidebar from '@/features/navigation_sidebar/index.vue';
 import AppChat from '@/features/app_chat/index.vue';
+import RightSidebar from '@/widgets/rigth_sidebar/index.vue';
 </script>
 
 <template>
   <div class="layout-wrapper">
-    <section class="layout-wrapper__left-sidebar"><NavigationSidebar /></section>
+    <aside class="layout-wrapper__left-sidebar"><NavigationSidebar /></aside>
     <section class="layout-wrapper__chat"><AppChat /></section>
-    <section class="layout-wrapper__right-sidebar">side2</section>
+    <aside class="layout-wrapper__right-sidebar"><RightSidebar /></aside>
   </div>
 </template>
 
