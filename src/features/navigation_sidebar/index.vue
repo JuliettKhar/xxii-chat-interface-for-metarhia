@@ -13,7 +13,7 @@ const folders = ref([...FOLDERS]);
   <nav class="navigation-sidebar">
     <div class="navigation-sidebar__menu-header border-bottom-black">
       <h2>$ Chat title</h2>
-      <span class="navigation-sidebar__menu-header--peers">peers: 4</span>
+      <span class="navigation-sidebar__menu-header--peers"><span>peers:</span> 4</span>
     </div>
     <div>
       <div class="navigation-sidebar__block border-bottom-black">
@@ -59,7 +59,7 @@ const folders = ref([...FOLDERS]);
             <router-link to="" class="navigation-sidebar__block-link">
               <Icon :name="item.icon" variant="outlined" />
               <span>{{ item.name }}</span>
-<!--              <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>-->
+              <!--              <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>-->
             </router-link>
           </li>
         </ul>
@@ -82,6 +82,11 @@ const folders = ref([...FOLDERS]);
 
     &--peers {
       flex-basis: 100px;
+      opacity: 0.7;
+
+      span:first-child {
+        color: var(--text-white);
+      }
     }
   }
 
@@ -90,6 +95,7 @@ const folders = ref([...FOLDERS]);
 
     h3 {
       color: var(--text-white);
+      opacity: 0.7;
     }
     ul {
       list-style-type: none;
@@ -111,6 +117,10 @@ const folders = ref([...FOLDERS]);
   &__block--list {
     & > li {
       @include mixins.sidebar-list-hover;
+    }
+
+    & > li > a {
+      opacity: 0.7;
     }
   }
 

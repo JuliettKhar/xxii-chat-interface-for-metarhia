@@ -2,7 +2,9 @@
   cursor: pointer;
   padding: 6px;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: var(--critical);
     color: var(--text-white);
   }

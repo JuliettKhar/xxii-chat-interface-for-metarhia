@@ -82,6 +82,10 @@ export const CHAT_MESSAGES = [
     body:
       'We are excited to announce the release of our new terminal-inspired design system. This includes monospace typography, tight spacing, and keyboard-first navigation patterns.',
     replies: 3,
+    reactions: [
+      { emoji: '👍', count: 12 },
+      { emoji: '⚡', count: 5 },
+    ],
   },
   {
     title: 'Q4 Development Roadmap',
@@ -90,6 +94,10 @@ export const CHAT_MESSAGES = [
     body:
       'Here is our planned roadmap for the next quarter: key focus performance improvements, new collaboration features, and enhanced search capabilities.',
     replies: 15,
+    reactions: [
+      { emoji: '👍', count: 8 },
+      { emoji: '⚡', count: 3 },
+    ],
   },
   {
     title: 'Weekly Sync Notes',
@@ -98,5 +106,8 @@ export const CHAT_MESSAGES = [
     body:
       'Summary of this week\'s meeting: Completed authentication flow, started work on real-time features, and discussed design patterns for the new system.',
     replies: 5,
+    reactions: [
+      { emoji: '👍', count: 2 },
+    ],
   },
 ];

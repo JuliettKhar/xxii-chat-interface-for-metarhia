@@ -26,11 +26,17 @@ import Icon from '@/shared/ui/Icon.vue';
           ><span>{{ message.time }}</span>
         </p>
         <p>{{ message.body }}</p>
-        <div>
-          <span>
+        <div class="chat__message--replies">
+          <button>
             <Icon name="add_comment"></Icon>
             <span>{{ message.replies }} replies</span>
-          </span>
+          </button>
+          <div>
+            <span v-for="(reaction, i) in message.reactions" :key="i">
+              <span>{{ reaction.emoji }}</span>
+              <span>{{ reaction.count }}</span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -70,6 +76,7 @@ import Icon from '@/shared/ui/Icon.vue';
 
     span:last-child {
       font-weight: 500;
+      opacity: 0.7;
     }
   }
 
@@ -83,6 +90,10 @@ import Icon from '@/shared/ui/Icon.vue';
 
       li {
         @include mixins.sidebar-list-hover;
+      }
+
+      li > a {
+        opacity: 0.7;
       }
     }
   }
@@ -100,21 +111,53 @@ import Icon from '@/shared/ui/Icon.vue';
     border-radius: 2px;
 
     h6 {
-      margin: 0;
+      margin: 2px 0;
+      font-size: 14px;
+      color: var(--text-primary);
     }
 
     p {
       margin: 4px 0;
       display: flex;
       gap: 8px;
+      color: var(--text-white);
+      opacity: 0.7;
+      align-items: center;
 
       span:first-child {
         font-weight: 500;
+        color: var(--text-secondary);
       }
 
       span:last-child {
         font-size: 11px;
-        opacity: 0.7;
+        color: var(--text-white);
+      }
+    }
+  }
+
+  &__message--replies {
+    margin-top: 10px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    opacity: 0.7;
+
+    button {
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 4px;
+      font-size: 11px;
+      color: var(--text-white);
+      cursor: pointer;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background: var(--text-secondary);
       }
     }
   }
