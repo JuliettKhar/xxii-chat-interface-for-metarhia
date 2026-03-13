@@ -60,12 +60,12 @@ export const CHATS = [
 export const FOLDERS = [
   {
     name: 'Projects',
-    icon: 'folder',
+    icon: 'add_comment',
     files: ['project-alpha', 'project-beta'],
   },
   {
     name: 'Archive',
-    icon: 'folder',
+    icon: 'add_comment',
     files: ['old-chats'],
   },
 ];

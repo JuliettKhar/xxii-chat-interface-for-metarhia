@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { CHAT_MESSAGES, chatNav } from '@/shared/utils/mock-data.ts';
 import Icon from '@/shared/ui/Icon.vue';
+import ChatInput from '@/widgets/rigth_sidebar/components/chat_input/index.vue';
 </script>
 
 <template>
@@ -40,11 +41,17 @@ import Icon from '@/shared/ui/Icon.vue';
         </div>
       </div>
     </div>
+    <div class="chat__input">
+      <ChatInput />
+    </div>
   </section>
 </template>
 
 <style scoped lang="scss">
 .chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   color: var(--text-white);
 
   &__header {
@@ -103,6 +110,7 @@ import Icon from '@/shared/ui/Icon.vue';
     flex-direction: column;
     gap: 10px;
     padding: 8px 14px;
+    flex: 1;
   }
 
   &__message {
@@ -141,25 +149,19 @@ import Icon from '@/shared/ui/Icon.vue';
     display: flex;
     gap: 4px;
     align-items: center;
-    opacity: 0.7;
 
     button {
-      background: transparent;
-      border: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      padding: 2px 4px;
-      font-size: 11px;
-      color: var(--text-white);
-      cursor: pointer;
+      color: var(--accent-blue);
 
       &:hover,
       &:focus,
       &:active {
-        background: var(--text-secondary);
+        color: var(--text-blue);
       }
     }
+  }
+
+  &__input {
   }
 }
 </style>

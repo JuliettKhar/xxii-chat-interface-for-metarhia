@@ -21,9 +21,14 @@ const folders = ref([...FOLDERS]);
         <ul class="navigation-sidebar__block--list">
           <li v-for="(item, i) in contacts" :key="i">
             <router-link to="" class="navigation-sidebar__block-link">
-              <Icon :name="item.icon" variant="outlined" />
-              <span>{{ item.name }}</span>
-              <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
+              <span class="block-link__side-wrapper">
+                <Icon :name="item.icon" variant="outlined" />
+                <span>{{ item.name }}</span>
+              </span>
+              <span class="block-link__side-wrapper">
+                <span>[2]</span>
+                <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
+              </span>
             </router-link>
           </li>
         </ul>
@@ -33,9 +38,14 @@ const folders = ref([...FOLDERS]);
         <ul class="navigation-sidebar__block--list">
           <li v-for="(item, i) in feeds" :key="i">
             <router-link to="" class="navigation-sidebar__block-link">
-              <Icon :name="item.icon" variant="outlined" />
-              <span>{{ item.name }}</span>
-              <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
+              <span class="block-link__side-wrapper">
+                <Icon :name="item.icon" variant="outlined" />
+                <span>{{ item.name }}</span>
+              </span>
+              <span class="block-link__side-wrapper">
+                <span>[2]</span>
+                <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
+              </span>
             </router-link>
           </li>
         </ul>
@@ -45,9 +55,14 @@ const folders = ref([...FOLDERS]);
         <ul class="navigation-sidebar__block--list">
           <li v-for="(item, i) in chats" :key="i">
             <router-link to="" class="navigation-sidebar__block-link">
-              <Icon :name="item.icon" variant="outlined" />
-              <span>{{ item.name }}</span>
-              <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
+              <span class="block-link__side-wrapper">
+                <Icon :name="item.icon" variant="outlined" />
+                <span>{{ item.name }}</span>
+              </span>
+              <span class="block-link__side-wrapper">
+                <span>[2]</span>
+                <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
+              </span>
             </router-link>
           </li>
         </ul>
@@ -57,9 +72,10 @@ const folders = ref([...FOLDERS]);
         <ul class="navigation-sidebar__block--list">
           <li v-for="(item, i) in folders" :key="i">
             <router-link to="" class="navigation-sidebar__block-link">
-              <Icon :name="item.icon" variant="outlined" />
-              <span>{{ item.name }}</span>
-              <!--              <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>-->
+              <span class="block-link__side-wrapper">
+                <Icon :name="item.icon" variant="outlined" />
+                <span>{{ item.name }}</span>
+              </span>
             </router-link>
           </li>
         </ul>
@@ -112,10 +128,11 @@ const folders = ref([...FOLDERS]);
     align-items: center;
     gap: 8px;
     width: 100%;
+    justify-content: space-between;
   }
 
   &__block--list {
-    & > li {
+    & > li  {
       @include mixins.sidebar-list-hover;
     }
 
@@ -129,6 +146,14 @@ const folders = ref([...FOLDERS]);
     font-size: 11px;
     opacity: 0.7;
     color: var(--text-white);
+  }
+}
+
+.block-link {
+  &__side-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 }
 </style>
