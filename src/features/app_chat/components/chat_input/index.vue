@@ -2,8 +2,12 @@
 
 <template>
   <div class="chat__input-wrapper">
-    <div class="input-wrapper" contenteditable>
-      <span class="prompt">> new post to #random</span>
+    <div class="terminal-container">
+      <div class="terminal-visual">
+        <span id="mirror-text"></span><span class="terminal-cursor"></span>
+      </div>
+
+      <textarea id="terminal-input" spellcheck="false" autofocus></textarea>
     </div>
     <div class="input-action-selectors">
       <div class="input-action-selectors__wrapper">
@@ -68,6 +72,66 @@
     &:active {
       background: var(--accent);
     }
+  }
+}
+
+.terminal-container {
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+  background: var(--bg);
+  color: var(--text-white);
+  //font-family: 'Courier New', monospace;
+  font-size: 14px;
+  //line-height: 1.4;
+  width: 100%;
+  min-height: 70px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+#terminal-input,
+.terminal-visual {
+  //padding: 20px;
+  margin: 0;
+  border: none;
+  font: inherit;
+  line-height: inherit;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#terminal-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  resize: none;
+  outline: none;
+  z-index: 2;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.2em;
+  background: #00ff00;
+  vertical-align: middle;
+  animation: blink 1s steps(2) infinite;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+  mix-blend-mode: difference;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
 </style>
