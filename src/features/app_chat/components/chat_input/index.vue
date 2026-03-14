@@ -1,13 +1,18 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import useChatInput from '@/features/app_chat/composables/useChatInput.ts';
+
+const { mirror, textAreaInput, cursor } = useChatInput();
+</script>
 
 <template>
   <div class="chat__input-wrapper">
-    <div class="terminal-container">
+    <div ref="terminalContainer" class="terminal-container">
       <div class="terminal-visual">
-        <span id="mirror-text"></span><span class="terminal-cursor"></span>
+        <span ref="mirror"></span>
+        <span ref="cursor" class="terminal-cursor is-blinking"></span>
       </div>
 
-      <textarea id="terminal-input" spellcheck="false" autofocus></textarea>
+      <textarea id="terminal-input" ref="textAreaInput" spellcheck="false" autofocus></textarea>
     </div>
     <div class="input-action-selectors">
       <div class="input-action-selectors__wrapper">
@@ -117,13 +122,16 @@
 
 .terminal-cursor {
   display: inline-block;
-  width: 10px;
+  width: 8px;
   height: 1.2em;
   background: #00ff00;
   vertical-align: middle;
-  animation: blink 1s steps(2) infinite;
   box-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
   mix-blend-mode: difference;
+}
+
+.terminal-cursor.is-blinking {
+  animation: blink 1s steps(2) infinite;
 }
 
 @keyframes blink {

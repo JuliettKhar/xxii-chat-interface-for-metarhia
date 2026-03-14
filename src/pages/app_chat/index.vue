@@ -64,6 +64,7 @@ import ChatMessage from '@/shared/lib/chat_message/index.vue';
         height: 14px;
         background: var(--text-white);
         margin-left: 8px;
+        opacity: 0.7;
       }
     }
 
