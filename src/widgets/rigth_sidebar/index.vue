@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import Icon from '@/shared/ui/Icon.vue';
+import ChatMessage from '@/shared/lib/chat_message/index.vue';
+import { CHAT_MESSAGES } from '@/shared/utils/mock-data.ts';
+import type { IChatMessage } from '@/features/app_chat/types';
+
+const message = CHAT_MESSAGES[0] as IChatMessage;
 </script>
 
 <template>
@@ -11,7 +16,9 @@ import Icon from '@/shared/ui/Icon.vue';
       </button>
     </div>
     <div>
-      <div class="right-sidebar__block border-bottom-black"></div>
+      <div class="right-sidebar__block border-bottom-black">
+        <ChatMessage :message="message" class=""/>
+      </div>
       <div class="right-sidebar__block border-bottom-black">
         <h5>stats</h5>
         <p class="right-sidebar__block--stats">

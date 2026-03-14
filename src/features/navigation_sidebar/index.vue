@@ -13,7 +13,9 @@ const sidebarNav = [
 <template>
   <nav class="navigation-sidebar">
     <div class="navigation-sidebar__menu-header border-bottom-black">
-      <h2>$ Chat title</h2>
+      <router-link to="/" class="navigation-sidebar__menu-header-link">
+        <img src="@/shared/assets/metarhia.svg" alt="logo" />
+      </router-link>
       <span class="navigation-sidebar__menu-header--peers"><span>peers:</span> 4</span>
     </div>
     <NavSidebarBlock :sidebarItem="sidebarNav" />
@@ -30,6 +32,14 @@ const sidebarNav = [
 
     h2 {
       margin: 0;
+    }
+
+    &-link {
+      display: flex;
+
+      img {
+        max-width: 77px;
+      }
     }
 
     &--peers {
