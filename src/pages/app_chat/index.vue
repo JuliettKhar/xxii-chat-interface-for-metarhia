@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CHAT_MESSAGES, chatNav } from '@/shared/utils/mock-data.ts';
 import ChatInput from '@/features/app_chat/components/chat_input/index.vue';
-import ChatMessage from '@/shared/lib/chat_message/index.vue';
+import ChatMessage from '@/shared/ui/chat_message/index.vue';
 </script>
 
 <template>

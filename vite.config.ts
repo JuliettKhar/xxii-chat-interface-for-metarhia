@@ -19,7 +19,7 @@ export default defineConfig({
   preprocessorOptions: {
     scss: {
       additionalData: `
-        @use "@/shared/styles/tokens/index.scss" as *;
+        @use "@/app/styles/tokens/index.scss" as *;
         @use "@/shared/styles/mixins.scss" as mixins;
       `
     }

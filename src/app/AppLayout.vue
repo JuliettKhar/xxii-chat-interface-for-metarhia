@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NavigationSidebar from '@/features/navigation_sidebar/index.vue';
 import AppChat from '@/pages/app_chat/index.vue';
-import RightSidebar from '@/widgets/rigth_sidebar/index.vue';
+import RightSidebar from '@/features/right_sidebar/index.vue';
 </script>
 
 <template>

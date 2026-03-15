@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Icon from '@/shared/ui/Icon.vue';
-import type { INavSidebar } from '@/widgets/rigth_sidebar/types';
+import type { INavSidebar } from '@/features/right_sidebar/types';
 
 const props = withDefaults(
   defineProps<{
@@ -108,6 +108,7 @@ const props = withDefaults(
     color: var(--text-white);
   }
 }
+
 
 .block-link {
   &__side-wrapper {
