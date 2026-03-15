@@ -13,7 +13,7 @@ const props = withDefaults(
       time: '',
       body: '',
       replies: 0,
-      reactions: [],
+      reactions: {},
     }),
   },
 );
@@ -33,9 +33,9 @@ const props = withDefaults(
         <span>{{ props.message.replies }} replies</span>
       </button>
       <div>
-        <span v-for="(reaction, i) in props.message.reactions" :key="i">
-          <span>{{ reaction.emoji }}</span>
-          <span>{{ reaction.count }}</span>
+        <span v-for="(authors, emoji) in props.message.reactions" :key="emoji">
+          <span>{{ emoji }}</span>
+          <span>{{ authors.length }}</span>
         </span>
       </div>
     </div>
