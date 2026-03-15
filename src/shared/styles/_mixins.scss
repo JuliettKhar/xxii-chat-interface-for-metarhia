@@ -6,5 +6,9 @@
   &:active {
     background-color: var(--critical);
     color: var(--text-black);
+
+    .navigation-sidebar__block-time {
+      color: inherit;
+    }
   }
 }
