@@ -62,6 +62,7 @@ const { mirror, textAreaInput, cursor } = useChatInput();
 
       &:hover,
       &:focus,
+      &:focus-visible,
       &:active {
         color: var(--text-blue);
       }
@@ -104,6 +105,12 @@ const { mirror, textAreaInput, cursor } = useChatInput();
   line-height: inherit;
   white-space: pre-wrap;
   word-wrap: break-word;
+
+  &:focus,
+  &:focus-visible {
+    border: 1px solid var(--critical);
+    border-radius: 3px;
+  }
 }
 
 #terminal-input {

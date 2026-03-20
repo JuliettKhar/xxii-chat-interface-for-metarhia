@@ -3,6 +3,7 @@
 
   &:hover,
   &:focus,
+  &:focus-within,
   &:active {
     background-color: var(--critical);
     color: var(--text-black);

@@ -55,7 +55,7 @@ const formatTime = (value?: string | Date): string => {
       <template v-else>
         <li v-for="(item, i) in sidebarItem.items" :key="i">
           <button class="block-tree__side-wrapper">
-            <a href="">[-]</a>
+            <span>[-]</span>
             <span class="block-link__folder-name">{{ item.name }}</span>
           </button>
           <ul class="navigation-sidebar__block-tree">
@@ -103,7 +103,7 @@ const formatTime = (value?: string | Date): string => {
   }
 
   &__block--list {
-    & > li.list-hover {
+    & > li.list-hover, {
       @include mixins.sidebar-list-hover;
     }
   }
@@ -140,7 +140,8 @@ const formatTime = (value?: string | Date): string => {
     gap: var(--space-3);
     padding: var(--space-3);
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       color: var(--critical);
     }
   }
