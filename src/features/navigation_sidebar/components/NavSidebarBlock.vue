@@ -30,6 +30,7 @@ const props = withDefaults(
           <router-link to="" class="navigation-sidebar__block-link">
             <span class="block-link__side-wrapper">
               <Icon :name="item.icon" variant="outlined" />
+              <span class="block-link__side-"></span>
               <span>{{ item.name }}</span>
             </span>
             <span class="block-link__side-wrapper">
@@ -66,8 +67,7 @@ const props = withDefaults(
     padding: 0 14px;
 
     h3 {
-      color: var(--text-white);
-      opacity: 0.7;
+      color: var(--text-white-dim);
     }
     ul {
       list-style-type: none;
@@ -95,17 +95,12 @@ const props = withDefaults(
     & > li.list-hover {
       @include mixins.sidebar-list-hover;
     }
-
-    & > li > a {
-      opacity: 0.7;
-    }
   }
 
   &__block-time {
     margin-left: auto;
     font-size: 11px;
-    opacity: 0.7;
-    color: var(--text-white);
+    color: var(--text-white-dim);
   }
 }
 
@@ -120,15 +115,10 @@ const props = withDefaults(
 
   &__file-name {
     color: var(--text-primary);
-    opacity: 0.7;
 
     &:hover {
-      color: var(--text-white);
+      color: var(--text-white-dim);
     }
-  }
-
-  &__folder-name {
-    opacity: 0.7;
   }
 }
 
@@ -146,7 +136,6 @@ const props = withDefaults(
 
   &__file-name {
     color: var(--text-primary);
-    opacity: 0.7;
 
     &:hover {
       color: var(--critical);

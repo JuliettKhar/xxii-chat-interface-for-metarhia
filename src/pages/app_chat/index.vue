@@ -38,7 +38,7 @@ import ChatMessage from '@/shared/ui/chat_message/index.vue';
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: var(--text-white);
+  color: var(--text-white-dim);
 
   &__header {
     padding: 10px 14px;
@@ -62,15 +62,13 @@ import ChatMessage from '@/shared/ui/chat_message/index.vue';
         display: inline-block;
         width: 2px;
         height: 14px;
-        background: var(--text-white);
+        background: var(--text-white-dim);
         margin-left: 8px;
-        opacity: 0.7;
       }
     }
 
     span:last-child {
       font-weight: 500;
-      opacity: 0.7;
     }
   }
 
@@ -89,7 +87,6 @@ import ChatMessage from '@/shared/ui/chat_message/index.vue';
       li > a {
         padding: 2px;
         display: inline-block;
-        opacity: 0.7;
       }
     }
   }

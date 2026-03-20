@@ -59,8 +59,7 @@ const props = withDefaults(
       margin: 4px 0;
       display: flex;
       gap: 8px;
-      color: var(--text-white);
-      opacity: 0.7;
+      color: var(--text-white-dim);
       align-items: center;
 
       span:first-child {
@@ -70,14 +69,13 @@ const props = withDefaults(
 
       span:last-child {
         font-size: 11px;
-        color: var(--text-white);
+        color: var(--text-white-dim);
       }
     }
   }
 
   &__message-plain {
     color: var(--text-primary);
-    opacity: 0.7;
 
     h6 {
       margin: 2px 0;
@@ -89,7 +87,6 @@ const props = withDefaults(
       margin: 4px 0;
       display: flex;
       gap: 8px;
-      opacity: 0.7;
       align-items: center;
 
       span:first-child {
@@ -99,7 +96,7 @@ const props = withDefaults(
 
       span:last-child {
         font-size: 11px;
-        color: var(--text-white);
+        color: var(--text-white-dim);
       }
     }
   }

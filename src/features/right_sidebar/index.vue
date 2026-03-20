@@ -57,7 +57,7 @@ const message = CHAT_MESSAGES[0] as IChatMessage;
 
   &__block {
     padding: 8px 14px;
-    color: var(--text-white);
+    color: var(--text-white-dim);
 
     h5 {
       margin: 0 0 8px;
@@ -67,7 +67,6 @@ const message = CHAT_MESSAGES[0] as IChatMessage;
 
     p {
       margin: 0 0 4px;
-      //color: var(--text-secondary);
     }
 
     &--stats {

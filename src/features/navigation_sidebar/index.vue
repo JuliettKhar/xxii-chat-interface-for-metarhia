@@ -44,10 +44,9 @@ const sidebarNav = [
 
     &--peers {
       flex-basis: 100px;
-      opacity: 0.7;
 
       span:first-child {
-        color: var(--text-white);
+        color: var(--text-white-dim);
       }
     }
   }
