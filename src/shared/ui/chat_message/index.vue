@@ -45,20 +45,20 @@ const props = withDefaults(
 <style scoped lang="scss">
 .chat {
   &__message {
-    padding: 14px;
+    padding: var(--space-7);
     background: var(--aside-bg);
     border-radius: 2px;
 
     h6 {
-      margin: 2px 0;
+      margin: var(--space-1) 0;
       font-size: 14px;
       color: var(--text-primary);
     }
 
     p {
-      margin: 4px 0;
+      margin: var(--space-2) 0;
       display: flex;
-      gap: 8px;
+      gap: var(--space-4);
       color: var(--text-white-dim);
       align-items: center;
 
@@ -78,15 +78,15 @@ const props = withDefaults(
     color: var(--text-primary);
 
     h6 {
-      margin: 2px 0;
+      margin: var(--space-1) 0;
       font-size: 14px;
       color: var(--text-primary);
     }
 
     p {
-      margin: 4px 0;
+      margin: var(--space-2) 0;
       display: flex;
-      gap: 8px;
+      gap: var(--space-4);
       align-items: center;
 
       span:first-child {
@@ -102,9 +102,9 @@ const props = withDefaults(
   }
 
   &__message--replies {
-    margin-top: 10px;
+    margin-top: var(--space-5);
     display: flex;
-    gap: 4px;
+    gap: var(--space-2);
     align-items: center;
 
     button {

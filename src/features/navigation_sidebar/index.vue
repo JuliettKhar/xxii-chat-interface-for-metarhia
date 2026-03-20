@@ -28,7 +28,7 @@ const sidebarNav = [
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 14px;
+    padding: var(--space-4) var(--space-7);
 
     h2 {
       margin: 0;

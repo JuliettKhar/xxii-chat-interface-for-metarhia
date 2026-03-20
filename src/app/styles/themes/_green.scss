@@ -1,4 +1,5 @@
 @use "../tokens/semantic" as s;
+@use "../tokens/spacing" as sp;
 @use "../tokens/typography" as t;
 
 :root[data-theme="green"] {
@@ -27,6 +28,20 @@
   --warning: #{s.$warning};
   --critical: #{s.$critical};
   --info: #{s.$info};
+
+  /* Spacing */
+  --space-base-unit: #{sp.$space-base-unit};
+  --space-0: #{sp.$space-0};
+  --space-1: #{sp.$space-1};
+  --space-2: #{sp.$space-2};
+  --space-3: #{sp.$space-3};
+  --space-4: #{sp.$space-4};
+  --space-5: #{sp.$space-5};
+  --space-6: #{sp.$space-6};
+  --space-7: #{sp.$space-7};
+  --space-8: #{sp.$space-8};
+  --space-10: #{sp.$space-10};
+  --space-12: #{sp.$space-12};
 
   /* Typography */
   --font-family-mono: #{t.$font-family-mono};

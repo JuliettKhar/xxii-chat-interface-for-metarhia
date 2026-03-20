@@ -50,7 +50,7 @@ const hideRightSidebar = () => emits('hide');
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 14px;
+    padding: var(--space-4) var(--space-7);
 
     h2 {
       color: var(--text-primary);
@@ -66,17 +66,17 @@ const hideRightSidebar = () => emits('hide');
   }
 
   &__block {
-    padding: 8px 14px;
+    padding: var(--space-4) var(--space-7);
     color: var(--text-white-dim);
 
     h5 {
-      margin: 0 0 8px;
+      margin: 0 0 var(--space-4);
       text-transform: uppercase;
       font-size: 14px;
     }
 
     p {
-      margin: 0 0 4px;
+      margin: 0 0 var(--space-2);
     }
 
     &--stats {

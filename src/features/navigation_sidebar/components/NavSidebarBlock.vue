@@ -75,7 +75,7 @@ const formatTime = (value?: string | Date): string => {
 <style scoped lang="scss">
 .navigation-sidebar {
   &__block {
-    padding: 0 14px;
+    padding: 0 var(--space-7);
 
     h3 {
       color: var(--text-white-dim);
@@ -93,13 +93,13 @@ const formatTime = (value?: string | Date): string => {
   &__block-link {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--space-4);
     width: 100%;
     justify-content: space-between;
   }
 
   &__block-tree {
-    padding-left: 20px !important;
+    padding-left: var(--space-10) !important;
   }
 
   &__block--list {
@@ -120,8 +120,8 @@ const formatTime = (value?: string | Date): string => {
   &__side-wrapper {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px;
+    gap: var(--space-3);
+    padding: var(--space-3);
   }
 
   &__file-name {
@@ -137,8 +137,8 @@ const formatTime = (value?: string | Date): string => {
   &__side-wrapper {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px;
+    gap: var(--space-3);
+    padding: var(--space-3);
 
     &:hover {
       color: var(--critical);

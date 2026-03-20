@@ -41,7 +41,7 @@ import ChatMessage from '@/shared/ui/chat_message/index.vue';
   color: var(--text-white-dim);
 
   &__header {
-    padding: 10px 14px;
+    padding: var(--space-5) var(--space-7);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,7 +49,7 @@ import ChatMessage from '@/shared/ui/chat_message/index.vue';
 
   &__header-left {
     span:first-child {
-      margin-right: 10px;
+      margin-right: var(--space-5);
       color: var(--text-secondary);
       position: relative;
 
@@ -63,7 +63,7 @@ import ChatMessage from '@/shared/ui/chat_message/index.vue';
         width: 2px;
         height: 14px;
         background: var(--text-white-dim);
-        margin-left: 8px;
+        margin-left: var(--space-4);
       }
     }
 
@@ -75,7 +75,7 @@ import ChatMessage from '@/shared/ui/chat_message/index.vue';
   &__nav {
     ul {
       display: flex;
-      gap: 14px;
+      gap: var(--space-7);
       list-style: none;
       padding: 0;
       margin: 0;
@@ -85,7 +85,7 @@ import ChatMessage from '@/shared/ui/chat_message/index.vue';
       }
 
       li > a {
-        padding: 2px;
+        padding: var(--space-1);
         display: inline-block;
       }
     }
@@ -94,8 +94,8 @@ import ChatMessage from '@/shared/ui/chat_message/index.vue';
   &__message-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 8px 14px;
+    gap: var(--space-5);
+    padding: var(--space-4) var(--space-7);
     flex: 1;
   }
 }

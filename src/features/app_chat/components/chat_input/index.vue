@@ -27,19 +27,19 @@ const { mirror, textAreaInput, cursor } = useChatInput();
 
 <style scoped lang="scss">
 .chat__input-wrapper {
-  padding: 10px 15px;
+  padding: var(--space-5) var(--space-7);
   background: var(--aside-bg);
-  margin: 10px;
+  margin: var(--space-5);
 }
 
 .input-wrapper {
   display: flex;
   min-height: 50px;
-  gap: 10px;
+  gap: var(--space-5);
   background: var(--bg);
-  padding: 6px 10px;
+  padding: var(--space-3) var(--space-5);
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: var(--space-5);
 
   .prompt {
     color: var(--text-secondary);
@@ -49,13 +49,13 @@ const { mirror, textAreaInput, cursor } = useChatInput();
 
 .input-action-selectors {
   display: flex;
-  gap: 10px;
+  gap: var(--space-5);
   color: var(--text-white);
   justify-content: space-between;
 
   &__wrapper {
     display: flex;
-    gap: 10px;
+    gap: var(--space-5);
 
     button {
       color: var(--accent-blue);
@@ -81,7 +81,7 @@ const { mirror, textAreaInput, cursor } = useChatInput();
 }
 
 .terminal-container {
-  padding: 5px;
+  padding: var(--space-2);
   box-sizing: border-box;
   position: relative;
   background: var(--bg);
@@ -91,7 +91,7 @@ const { mirror, textAreaInput, cursor } = useChatInput();
   //line-height: 1.4;
   width: 100%;
   min-height: 70px;
-  margin-bottom: 10px;
+  margin-bottom: var(--space-5);
   border-radius: 3px;
 }
 

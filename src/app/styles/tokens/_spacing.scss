@@ -1,0 +1,28 @@
+/* Spacing system */
+$space-base-unit: 2px;
+
+/* Scale */
+$space-0: 0;
+$space-1: $space-base-unit; // 2px
+$space-2: $space-base-unit * 2; // 4px
+$space-3: $space-base-unit * 3; // 6px
+$space-4: $space-base-unit * 4; // 8px
+$space-5: $space-base-unit * 5; // 10px
+$space-6: $space-base-unit * 6; // 12px
+$space-7: $space-base-unit * 7; // 14px
+$space-8: $space-base-unit * 8; // 16px
+$space-10: $space-base-unit * 10; // 20px
+$space-12: $space-base-unit * 12; // 24px
+
+/* Current project value mapping
+ * 2px  -> $space-1
+ * 4px  -> $space-2
+ * 5px  -> keep as exception or normalize to $space-2 / $space-3
+ * 6px  -> $space-3
+ * 8px  -> $space-4
+ * 10px -> $space-5
+ * 12px -> $space-6
+ * 14px -> $space-7
+ * 15px -> keep as exception or normalize to $space-7 / $space-8
+ * 16px -> $space-8
+ */
