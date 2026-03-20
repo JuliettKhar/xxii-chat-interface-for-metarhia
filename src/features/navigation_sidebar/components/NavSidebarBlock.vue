@@ -15,6 +15,17 @@ const props = withDefaults(
     ],
   },
 );
+
+const formatTime = (value?: string | Date): string => {
+  if (!value) return '';
+
+  if (value instanceof Date) {
+    return value.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  const match = value.match(/\b\d{2}:\d{2}\b/);
+  return match ? match[0] : value;
+};
 </script>
 
 <template>
@@ -36,7 +47,7 @@ const props = withDefaults(
             <span class="block-link__side-wrapper">
               <span v-if="item.messagesCount">[{{ item.messagesCount }}]</span>
               <span v-else></span>
-              <span class="navigation-sidebar__block-time">{{ item.lastActivity }}</span>
+              <span class="navigation-sidebar__block-time">{{ formatTime(item.lastActivity) }}</span>
             </span>
           </router-link>
         </li>

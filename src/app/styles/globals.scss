@@ -1,4 +1,5 @@
 @use "tokens/index" as *;
+@use "@/shared/styles/transitions" as *;
 
 html {
   /* тема по умолчанию */
@@ -13,6 +14,7 @@ body {
   font-size: var(--font-size-sm);
   line-height: var(--lh-normal);
   letter-spacing: var(--ls-terminal);
+  overflow-y: hidden;
 }
 
 a {

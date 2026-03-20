@@ -1,0 +1,17 @@
+.right-sidebar-slide-enter-active,
+.right-sidebar-slide-leave-active {
+  transition: transform 220ms ease, opacity 220ms ease;
+  will-change: transform, opacity;
+}
+
+.right-sidebar-slide-enter-from,
+.right-sidebar-slide-leave-to {
+  transform: translateX(16px);
+  opacity: 0;
+}
+
+.right-sidebar-slide-enter-to,
+.right-sidebar-slide-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
