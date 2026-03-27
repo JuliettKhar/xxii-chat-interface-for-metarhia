@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import AppLayout from '@/app/AppLayout.vue';
 import FeedPage from '@/pages/feed/index.vue';
 import ThreadPage from '@/pages/thread/index.vue';
-import SearchPage from '@/pages/search/index.vue';
 import AppChat from '@/pages/app_chat/index.vue';
 import ChatMessages from '@/pages/app_chat/ChatMessages.vue';
 import ChatFiles from '@/pages/app_chat/ChatFiles.vue';
