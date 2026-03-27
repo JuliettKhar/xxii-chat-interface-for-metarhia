@@ -1,3 +1,5 @@
+import type { IChatMessage } from '@/features/app_chat/types';
+
 export const CONTACTS = [
   {
     nick: 'name_1',
@@ -309,6 +311,3 @@ export const POSTS = [
     attachments: ['report.pdf'],
   },
 ];
-
-import type { IChatMessage } from '@/features/app_chat/types';
-
