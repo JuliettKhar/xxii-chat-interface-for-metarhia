@@ -2,14 +2,13 @@
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import Icon from '@/shared/ui/Icon.vue';
-import ChatMessage from '@/shared/ui/chat_message/index.vue';
 import { CHAT_MESSAGES, CHATS, CONTACTS, FILES } from '@/shared/utils/mock-data.ts';
 import type { IChatMessage } from '@/features/app_chat/types';
 
 const route = useRoute();
 const router = useRouter();
 
-const message = CHAT_MESSAGES[0] as IChatMessage;
+const activeChatFallback = CHATS[0]!;
 
 const activePanel = computed(() => {
   const panel = route.query.panel;
@@ -18,7 +17,7 @@ const activePanel = computed(() => {
 
 const activeChat = computed(() => {
   const chatIndex = Number(route.params.id ?? 0);
-  return CHATS[chatIndex] ?? CHATS[0];
+  return CHATS[chatIndex] ?? activeChatFallback;
 });
 
 const visibleMembers = computed(() =>

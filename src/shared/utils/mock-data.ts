@@ -220,7 +220,7 @@ export const chatNav = [
   'Search', 'Pin list', 'Members', 'Files'
 ]
 
-export const CHAT_MESSAGES = [
+export const CHAT_MESSAGES: IChatMessage[] = [
   {
     title: 'Terminal UI Design System Release',
     author: 'sara',
@@ -310,4 +310,5 @@ export const POSTS = [
   },
 ];
 
+import type { IChatMessage } from '@/features/app_chat/types';
 

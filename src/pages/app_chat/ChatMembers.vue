@@ -4,10 +4,11 @@ import { useRoute } from 'vue-router';
 import { CHATS, CONTACTS } from '@/shared/utils/mock-data.ts';
 
 const route = useRoute();
+const activeChatFallback = CHATS[0]!;
 
 const activeChat = computed(() => {
   const chatIndex = Number(route.params.id ?? 0);
-  return CHATS[chatIndex] ?? CHATS[0];
+  return CHATS[chatIndex] ?? activeChatFallback;
 });
 
 const visibleMembers = computed(() =>

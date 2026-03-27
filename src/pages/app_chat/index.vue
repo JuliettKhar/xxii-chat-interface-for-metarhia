@@ -1,37 +1,37 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, type LocationQueryRaw, type RouteLocationRaw } from 'vue-router';
 import { chatNav } from '@/shared/utils/mock-data.ts';
 import ChatInput from '@/features/app_chat/components/chat_input/index.vue';
 
 const route = useRoute();
 
-const navRoutes = computed<Record<string, { name?: string; params?: { id: string | string[] }; query?: Record<string, unknown> } | string>>(() => {
+const navRoutes = computed<Record<string, RouteLocationRaw>>(() => {
   const currentName = typeof route.name === 'string' ? route.name : undefined;
+  const routeQuery: LocationQueryRaw = { ...route.query };
+  const routeParams = route.params.id ? { id: route.params.id } : undefined;
+
+  const buildPanelRoute = (panel: string): RouteLocationRaw =>
+    currentName
+      ? {
+          name: currentName,
+          params: routeParams,
+          query: { ...routeQuery, panel },
+        }
+      : {
+          path: route.path,
+          query: { ...routeQuery, panel },
+        };
 
   return {
-    Search: {
-      name: currentName,
-      params: route.params.id ? { id: route.params.id } : undefined,
-      query: { ...route.query, panel: 'search' },
-    },
-    'Pin list': {
-      name: currentName,
-      params: route.params.id ? { id: route.params.id } : undefined,
-      query: { ...route.query, panel: 'pins' },
-    },
-    Members: {
-      name: currentName,
-      params: route.params.id ? { id: route.params.id } : undefined,
-      query: { ...route.query, panel: 'members' },
-    },
-    Files: {
-      name: currentName,
-      params: route.params.id ? { id: route.params.id } : undefined,
-      query: { ...route.query, panel: 'files' },
-    },
+    Search: buildPanelRoute('search'),
+    'Pin list': buildPanelRoute('pins'),
+    Members: buildPanelRoute('members'),
+    Files: buildPanelRoute('files'),
   };
 });
+
+const getNavRoute = (item: string): RouteLocationRaw => navRoutes.value[item] ?? route.fullPath;
 </script>
 
 <template>
@@ -44,7 +44,7 @@ const navRoutes = computed<Record<string, { name?: string; params?: { id: string
       <nav class="chat__nav">
         <ul>
           <li v-for="item in chatNav" :key="item">
-            <router-link :to="navRoutes[item] ?? ''" class="chat__nav-link">
+            <router-link :to="getNavRoute(item)" class="chat__nav-link">
               [ {{ item }} ]
             </router-link>
           </li>
