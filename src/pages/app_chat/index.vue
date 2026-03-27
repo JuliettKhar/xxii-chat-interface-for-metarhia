@@ -1,7 +1,37 @@
 <script setup lang="ts">
-import { CHAT_MESSAGES, chatNav } from '@/shared/utils/mock-data.ts';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { chatNav } from '@/shared/utils/mock-data.ts';
 import ChatInput from '@/features/app_chat/components/chat_input/index.vue';
-import ChatMessage from '@/shared/ui/chat_message/index.vue';
+
+const route = useRoute();
+
+const navRoutes = computed<Record<string, { name?: string; params?: { id: string | string[] }; query?: Record<string, unknown> } | string>>(() => {
+  const currentName = typeof route.name === 'string' ? route.name : undefined;
+
+  return {
+    Search: {
+      name: currentName,
+      params: route.params.id ? { id: route.params.id } : undefined,
+      query: { ...route.query, panel: 'search' },
+    },
+    'Pin list': {
+      name: currentName,
+      params: route.params.id ? { id: route.params.id } : undefined,
+      query: { ...route.query, panel: 'pins' },
+    },
+    Members: {
+      name: currentName,
+      params: route.params.id ? { id: route.params.id } : undefined,
+      query: { ...route.query, panel: 'members' },
+    },
+    Files: {
+      name: currentName,
+      params: route.params.id ? { id: route.params.id } : undefined,
+      query: { ...route.query, panel: 'files' },
+    },
+  };
+});
 </script>
 
 <template>
@@ -14,18 +44,15 @@ import ChatMessage from '@/shared/ui/chat_message/index.vue';
       <nav class="chat__nav">
         <ul>
           <li v-for="item in chatNav" :key="item">
-            <router-link to="" class="chat__nav-link"> [ {{ item }} ] </router-link>
+            <router-link :to="navRoutes[item] ?? ''" class="chat__nav-link">
+              [ {{ item }} ]
+            </router-link>
           </li>
         </ul>
       </nav>
     </div>
     <div class="chat__message-wrapper">
-      <ChatMessage
-        v-for="(message, i) in CHAT_MESSAGES"
-        :key="i"
-        :message="message"
-        has-reactions
-      />
+      <router-view />
     </div>
     <div class="chat__input">
       <ChatInput />

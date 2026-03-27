@@ -1,26 +1,28 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 import NavigationSidebar from '@/features/navigation_sidebar/index.vue';
-import AppChat from '@/pages/app_chat/index.vue';
-import RightSidebar from '@/features/right_sidebar/index.vue';
-import { ref } from 'vue';
 
-const showRightSidebar = ref<boolean>(true);
+const route = useRoute();
 
-const hideRightSidebar = () => {
-  showRightSidebar.value = false;
-};
+const showRightSidebar = computed(() => typeof route.query.panel === 'string');
 </script>
 
 <template>
-  <div class="layout-wrapper" :class="{ 'no-right-sidebar': !showRightSidebar }">
-    <aside class="layout-wrapper__left-sidebar"><NavigationSidebar /></aside>
-    <section class="layout-wrapper__chat"><AppChat /></section>
+  <div :class="['layout-wrapper', { 'no-right-sidebar': !showRightSidebar }]">
+    <aside class="layout-wrapper__left-sidebar">
+      <navigation-sidebar class="layout-wrapper__right-sidebar" />
+    </aside>
+    <section class="layout-wrapper__chat">
+      <router-view name="Chat"></router-view>
+    </section>
     <aside
-      class="layout-wrapper__right-sidebar"
-      :class="{ 'layout-wrapper__right-sidebar--collapsed': !showRightSidebar }"
-      :aria-hidden="!showRightSidebar"
+      :class="[
+        'layout-wrapper__right-sidebar',
+        { 'layout-wrapper__right-sidebar--collapsed': !showRightSidebar },
+      ]"
     >
-      <right-sidebar @hide="hideRightSidebar" />
+      <router-view name="RightSidebar"></router-view>
     </aside>
   </div>
 </template>
@@ -48,7 +50,9 @@ const hideRightSidebar = () => {
   }
 
   &__right-sidebar {
-    transition: opacity 220ms ease, transform 220ms ease;
+    transition:
+      opacity 220ms ease,
+      transform 220ms ease;
     will-change: opacity, transform;
     border-left: 0.5px solid var(--accent-bg);
     transform: translateX(0);

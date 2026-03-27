@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 import Icon from '@/shared/ui/Icon.vue';
 import type { INavSidebar } from '@/features/right_sidebar/types';
 
@@ -16,6 +18,29 @@ const props = withDefaults(
   },
 );
 
+const route = useRoute();
+
+const filesRouteName = computed(() => (route.params.id ? 'chatFiles' : 'chatRootFiles'));
+const contactsRouteName = computed(() => (route.params.id ? 'chatContacts' : 'chatRootContacts'));
+
+const buildContactsRoute = (contactName: string) => ({
+  name: contactsRouteName.value,
+  params: route.params.id ? { id: route.params.id } : undefined,
+  query: { contact: contactName },
+});
+
+const buildFolderRoute = (folderName: string) => ({
+  name: filesRouteName.value,
+  params: route.params.id ? { id: route.params.id } : undefined,
+  query: { folder: folderName },
+});
+
+const buildFileRoute = (folderName: string, fileName: string) => ({
+  name: filesRouteName.value,
+  params: route.params.id ? { id: route.params.id } : undefined,
+  query: { folder: folderName, file: fileName },
+});
+
 const formatTime = (value?: string | Date): string => {
   if (!value) return '';
 
@@ -25,6 +50,12 @@ const formatTime = (value?: string | Date): string => {
 
   const match = value.match(/\b\d{2}:\d{2}\b/);
   return match ? match[0] : value;
+};
+
+const buildItemRoute = (sectionName: string, itemIndex: number, itemName: string) => {
+  if (sectionName === 'contacts') return buildContactsRoute(itemName);
+
+  return { name: 'chatId', params: { id: `${itemIndex}` } };
 };
 </script>
 
@@ -38,7 +69,10 @@ const formatTime = (value?: string | Date): string => {
     <ul class="navigation-sidebar__block--list">
       <template v-if="!sidebarItem.isFolder">
         <li v-for="(item, i) in sidebarItem.items" :key="i" class="list-hover">
-          <router-link to="" class="navigation-sidebar__block-link">
+          <router-link
+            :to="buildItemRoute(sidebarItem.name, i, item.name)"
+            class="navigation-sidebar__block-link"
+          >
             <span class="block-link__side-wrapper">
               <Icon :name="item.icon" variant="outlined" />
               <span class="block-link__side-"></span>
@@ -47,23 +81,25 @@ const formatTime = (value?: string | Date): string => {
             <span class="block-link__side-wrapper">
               <span v-if="item.messagesCount">[{{ item.messagesCount }}]</span>
               <span v-else></span>
-              <span class="navigation-sidebar__block-time">{{ formatTime(item.lastActivity) }}</span>
+              <span class="navigation-sidebar__block-time">{{
+                formatTime(item.lastActivity)
+              }}</span>
             </span>
           </router-link>
         </li>
       </template>
       <template v-else>
         <li v-for="(item, i) in sidebarItem.items" :key="i">
-          <button class="block-tree__side-wrapper">
+          <router-link :to="buildFolderRoute(item.name)" class="block-tree__side-wrapper">
             <span>[-]</span>
             <span class="block-link__folder-name">{{ item.name }}</span>
-          </button>
+          </router-link>
           <ul class="navigation-sidebar__block-tree">
             <li v-for="(file, i) in item.files" :key="i">
-              <button class="block-tree__side-wrapper">
+              <router-link :to="buildFileRoute(item.name, file)" class="block-tree__side-wrapper">
                 <Icon :size="12" name="draft" variant="outlined" />
                 <span class="block-tree__file-name">{{ file }}</span>
-              </button>
+              </router-link>
             </li>
           </ul>
         </li>
@@ -103,7 +139,7 @@ const formatTime = (value?: string | Date): string => {
   }
 
   &__block--list {
-    & > li.list-hover, {
+    & > li.list-hover {
       @include mixins.sidebar-list-hover;
     }
   }
@@ -114,7 +150,6 @@ const formatTime = (value?: string | Date): string => {
     color: var(--text-white-dim);
   }
 }
-
 
 .block-link {
   &__side-wrapper {
@@ -139,6 +174,7 @@ const formatTime = (value?: string | Date): string => {
     align-items: center;
     gap: var(--space-3);
     padding: var(--space-3);
+    width: 100%;
 
     &:hover,
     &:focus-visible {

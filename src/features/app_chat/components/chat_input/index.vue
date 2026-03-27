@@ -87,9 +87,7 @@ const { mirror, textAreaInput, cursor } = useChatInput();
   position: relative;
   background: var(--bg);
   color: var(--text-white);
-  //font-family: 'Courier New', monospace;
   font-size: 14px;
-  //line-height: 1.4;
   width: 100%;
   min-height: 70px;
   margin-bottom: var(--space-5);
@@ -98,7 +96,6 @@ const { mirror, textAreaInput, cursor } = useChatInput();
 
 #terminal-input,
 .terminal-visual {
-  //padding: 20px;
   margin: 0;
   border: none;
   font: inherit;
