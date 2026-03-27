@@ -2,8 +2,7 @@
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import Icon from '@/shared/ui/Icon.vue';
-import { CHAT_MESSAGES, CHATS, CONTACTS, FILES } from '@/shared/utils/mock-data.ts';
-import type { IChatMessage } from '@/features/app_chat/types';
+import { CHATS, CONTACTS, FILES } from '@/shared/utils/mock-data.ts';
 
 const route = useRoute();
 const router = useRouter();

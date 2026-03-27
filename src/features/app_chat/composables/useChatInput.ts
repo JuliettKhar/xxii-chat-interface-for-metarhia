@@ -59,7 +59,7 @@ export default function useChatInput () {
     });
   }
 
-  const sendMessage = (text: string) => {
+  const sendMessage = (_text: string) => {
     textAreaInput.value!.value = '';
     mirror.value!.innerText = '';
   };

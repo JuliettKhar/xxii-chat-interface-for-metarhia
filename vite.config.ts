@@ -5,25 +5,29 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: './',
-  plugins: [
-    vue(),
-    vueDevTools(),
-  ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+export default defineConfig(() => {
+  const base = process.env.VITE_BASE_PATH || '/';
+
+  return {
+    base,
+    plugins: [
+      vue(),
+      vueDevTools(),
+    ],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+      },
     },
-  },
-  css: {
-  preprocessorOptions: {
-    scss: {
-      additionalData: `
-        @use "@/app/styles/tokens/index.scss" as *;
-        @use "@/shared/styles/mixins.scss" as mixins;
-      `
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @use "@/app/styles/tokens/index.scss" as *;
+            @use "@/shared/styles/mixins.scss" as mixins;
+          `
+        }
+      }
     }
-  }
-}
-})
+  };
+});

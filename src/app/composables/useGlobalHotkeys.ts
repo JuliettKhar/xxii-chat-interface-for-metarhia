@@ -1,7 +1,7 @@
 
 
 export default function useGlobalHotkeys() {
-
+  // oxlint-disable-next-line no-unused-vars
   const addKeyDownListener = () => {
     document.addEventListener('keydown',  (event) => {
       if (event.key === 'Escape') {
