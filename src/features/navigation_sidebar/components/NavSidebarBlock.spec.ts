@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import type { DOMWrapper } from '@vue/test-utils';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import NavSidebarBlock from './NavSidebarBlock.vue';
 
@@ -9,6 +10,17 @@ const routeMock = {
 vi.mock('vue-router', () => ({
   useRoute: () => routeMock,
 }));
+
+const expectLinkAt = (
+  links: DOMWrapper<HTMLAnchorElement>[],
+  index: number,
+) => {
+  const link = links[index];
+
+  expect(link).toBeDefined();
+
+  return link!;
+};
 
 describe('NavSidebarBlock', () => {
   beforeEach(() => {
@@ -79,11 +91,13 @@ describe('NavSidebarBlock', () => {
     });
 
     const links = wrapper.findAll('a');
+    const folderLink = expectLinkAt(links, 0);
+    const fileLink = expectLinkAt(links, 1);
 
-    expect(links[0].attributes('data-to')).toContain('"name":"chatRootFiles"');
-    expect(links[0].attributes('data-to')).toContain('"folder":"Projects"');
-    expect(links[1].attributes('data-to')).toContain('"name":"chatRootFiles"');
-    expect(links[1].attributes('data-to')).toContain('"file":"project-alpha"');
+    expect(folderLink.attributes('data-to')).toContain('"name":"chatRootFiles"');
+    expect(folderLink.attributes('data-to')).toContain('"folder":"Projects"');
+    expect(fileLink.attributes('data-to')).toContain('"name":"chatRootFiles"');
+    expect(fileLink.attributes('data-to')).toContain('"file":"project-alpha"');
   });
 
   it('uses chat scoped routes when chat id is active', () => {
@@ -117,10 +131,12 @@ describe('NavSidebarBlock', () => {
     });
 
     const links = wrapper.findAll('a');
+    const folderLink = expectLinkAt(links, 0);
+    const fileLink = expectLinkAt(links, 1);
 
-    expect(links[0].attributes('data-to')).toContain('"name":"chatFiles"');
-    expect(links[0].attributes('data-to')).toContain('"id":"3"');
-    expect(links[1].attributes('data-to')).toContain('"name":"chatFiles"');
-    expect(links[1].attributes('data-to')).toContain('"file":"old-chats"');
+    expect(folderLink.attributes('data-to')).toContain('"name":"chatFiles"');
+    expect(folderLink.attributes('data-to')).toContain('"id":"3"');
+    expect(fileLink.attributes('data-to')).toContain('"name":"chatFiles"');
+    expect(fileLink.attributes('data-to')).toContain('"file":"old-chats"');
   });
 });
